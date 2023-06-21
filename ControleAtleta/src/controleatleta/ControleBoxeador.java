@@ -24,7 +24,7 @@ public class ControleBoxeador {
     
     public Boxeador pesquisar(String nome) {
         for (Boxeador b: listaBoxeadores) {
-            if (b.getNome().equalsIgnoreCase(nome)) return b;
+            if (b.getInformacoesPessoais().getNome().equalsIgnoreCase(nome)) return b;
         }
         return null;
     }

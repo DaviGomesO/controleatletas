@@ -24,7 +24,7 @@ public class ControleTenista {
     
     public Tenista pesquisar(String nome) {
         for (Tenista t: listaTenistas) {
-            if (t.getNome().equalsIgnoreCase(nome)) return t;
+            if (t.getInformacoesPessoais().getNome().equalsIgnoreCase(nome)) return t;
         }
         return null;
     }

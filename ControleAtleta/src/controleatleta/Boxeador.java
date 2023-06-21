@@ -113,7 +113,7 @@ public class Boxeador extends Atleta {
     }
 
     public String obterCategoriaPesoNome() {
-        return obterCategoriaPesoNome(this.getCategoria(), this.getPeso());
+        return obterCategoriaPesoNome(this.getCategoria(), this.getInformacoesPessoais().getPeso());
     }
 
     public static String obterCategoriaPesoNome(char categoria, double peso) {

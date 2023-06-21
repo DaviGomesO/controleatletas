@@ -69,28 +69,28 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         ArrayList<String> telefones;
         ArrayList<Premiacao> premiacoes;
 
-        jTextFieldAltura.setText(Double.toString(umBoxeador.getAltura()));
-        jTextFieldBairro.setText(umBoxeador.getEndereco().getAtributo("bairro"));
-        jTextFieldCategoriaPeso.setText(Double.toString(umBoxeador.getPeso()));
-        jTextFieldCep.setText(umBoxeador.getEndereco().getAtributo("cep"));
-        jTextFieldCidade.setText(umBoxeador.getEndereco().getAtributo("cidade"));
-        jTextFieldComplemento.setText(umBoxeador.getEndereco().getAtributo("complemento"));
-        jTextFieldCpf.setText(umBoxeador.getCpf());
-        if (umBoxeador.getDataNascimento() == null) {
+        jTextFieldAltura.setText(Double.toString(umBoxeador.getInformacoesPessoais().getAltura()));
+        jTextFieldBairro.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("bairro"));
+        jTextFieldCategoriaPeso.setText(Double.toString(umBoxeador.getInformacoesPessoais().getPeso()));
+        jTextFieldCep.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("cep"));
+        jTextFieldCidade.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("cidade"));
+        jTextFieldComplemento.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("complemento"));
+        jTextFieldCpf.setText(umBoxeador.getInformacoesPessoais().getCpf());
+        if (umBoxeador.getInformacoesPessoais().getDataNascimento() == null) {
             jTextFieldDataNascimento.setText(null);
         } else {
-            jTextFieldDataNascimento.setText(dateFormat.format(umBoxeador.getDataNascimento()));
+            jTextFieldDataNascimento.setText(dateFormat.format(umBoxeador.getInformacoesPessoais().getDataNascimento()));
         }
         jTextFieldEnvergadura.setText(Double.toString(umBoxeador.getEnvergadura()));
-        jComboBoxEstado.setSelectedItem(umBoxeador.getEndereco().getAtributo("estado"));
-        jTextFieldLogradouro.setText(umBoxeador.getEndereco().getAtributo("logradouro"));
-        jTextFieldNome.setText(umBoxeador.getNome());
-        jTextFieldNomeMae.setText(umBoxeador.getNomeMae());
-        jTextFieldNomePai.setText(umBoxeador.getNomePai());
-        jTextFieldNumero.setText(umBoxeador.getEndereco().getAtributo("numero"));
-        jTextFieldPais.setText(umBoxeador.getEndereco().getAtributo("pais"));
-        jTextFieldPeso.setText(Double.toString(umBoxeador.getPeso()));
-        jTextFieldRg.setText(umBoxeador.getRg());
+        jComboBoxEstado.setSelectedItem(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("estado"));
+        jTextFieldLogradouro.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("logradouro"));
+        jTextFieldNome.setText(umBoxeador.getInformacoesPessoais().getNome());
+        jTextFieldNomeMae.setText(umBoxeador.getInformacoesPessoais().getNomeMae());
+        jTextFieldNomePai.setText(umBoxeador.getInformacoesPessoais().getNomePai());
+        jTextFieldNumero.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("numero"));
+        jTextFieldPais.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("pais"));
+        jTextFieldPeso.setText(Double.toString(umBoxeador.getInformacoesPessoais().getPeso()));
+        jTextFieldRg.setText(umBoxeador.getInformacoesPessoais().getRg());
         jTextFieldTotalDerrotas.setText(Integer.toString(umBoxeador.getTotalDerrotas()));
         jTextFieldTotalDesistencias.setText(Integer.toString(umBoxeador.getTotalDesistencias()));
         jTextFieldTotalEmpates.setText(Integer.toString(umBoxeador.getTotalEmpates()));
@@ -99,7 +99,7 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         jTextFieldTotalVitorias.setText(Integer.toString(umBoxeador.getTotalVitorias()));
 
         telefonesListModel.clear();
-        telefones = umBoxeador.getTelefones();
+        telefones = umBoxeador.getContato().getTelefones();
         for (String t : telefones) {
             telefonesListModel.addElement(t);
         }
@@ -110,7 +110,7 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             premiacaoListModel.addElement(p);
         }
 
-        switch (umBoxeador.getSexo()) {
+        switch (umBoxeador.getInformacoesPessoais().getSexo()) {
             case Boxeador.SEXO_MASCULINO_VALOR:
                 jComboBoxSexo.setSelectedIndex(Boxeador.SEXO_MASCULINO_INDICE);
                 break;
@@ -317,18 +317,18 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         if (novoRegistro == true) {
             umBoxeador = new Boxeador(jTextFieldNome.getText());
         } else {
-            umBoxeador.setNome(jTextFieldNome.getText());
+            umBoxeador.getInformacoesPessoais().setNome(jTextFieldNome.getText());
         }
-        umBoxeador.setEndereco(endereco);
-        umBoxeador.setTelefones(telefones);
+        umBoxeador.getInformacoesPessoais().setEndereco(endereco);
+        umBoxeador.getContato().setTelefones(telefones);
         umBoxeador.setPremiacoes(premiacoes);
-        umBoxeador.setDataNascimento(dataNascimento);
-        umBoxeador.setAltura(Double.parseDouble(jTextFieldAltura.getText()));
-        umBoxeador.setNomeMae(jTextFieldNomeMae.getText());
-        umBoxeador.setNomePai(jTextFieldNomePai.getText());
-        umBoxeador.setPeso(Double.parseDouble(jTextFieldPeso.getText()));
-        umBoxeador.setCpf(jTextFieldCpf.getText());
-        umBoxeador.setRg(jTextFieldRg.getText());
+        umBoxeador.getInformacoesPessoais().setDataNascimento(dataNascimento);
+        umBoxeador.getInformacoesPessoais().setAltura(Double.parseDouble(jTextFieldAltura.getText()));
+        umBoxeador.getInformacoesPessoais().setNomeMae(jTextFieldNomeMae.getText());
+        umBoxeador.getInformacoesPessoais().setNomePai(jTextFieldNomePai.getText());
+        umBoxeador.getInformacoesPessoais().setPeso(Double.parseDouble(jTextFieldPeso.getText()));
+        umBoxeador.getInformacoesPessoais().setCpf(jTextFieldCpf.getText());
+        umBoxeador.getInformacoesPessoais().setRg(jTextFieldRg.getText());
         umBoxeador.setEnvergadura(Double.parseDouble(jTextFieldEnvergadura.getText()));
         umBoxeador.setTotalDerrotas(Integer.parseInt(jTextFieldTotalDerrotas.getText()));
         umBoxeador.setTotalDesistencias(Integer.parseInt(jTextFieldTotalDesistencias.getText()));
@@ -339,10 +339,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
 
         switch (jComboBoxSexo.getSelectedIndex()) {
             case Boxeador.SEXO_MASCULINO_INDICE:
-                umBoxeador.setSexo(Boxeador.SEXO_MASCULINO_VALOR);
+                umBoxeador.getInformacoesPessoais().setSexo(Boxeador.SEXO_MASCULINO_VALOR);
                 break;
             case Boxeador.SEXO_FEMININO_INDICE:
-                umBoxeador.setSexo(Boxeador.SEXO_FEMININO_VALOR);
+                umBoxeador.getInformacoesPessoais().setSexo(Boxeador.SEXO_FEMININO_VALOR);
                 break;
         }
 
@@ -378,7 +378,7 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTableListaBoxeadores.getModel();
         model.setRowCount(0);
         for (Boxeador b : listaBoxeadores) {
-            model.addRow(new String[]{b.getNome(), b.getCpf()});
+            model.addRow(new String[]{b.getInformacoesPessoais().getNome(), b.getInformacoesPessoais().getCpf()});
         }
         jTableListaBoxeadores.setModel(model);
     }
