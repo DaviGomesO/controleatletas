@@ -91,12 +91,12 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         jTextFieldPais.setText(umBoxeador.getInformacoesPessoais().getEndereco().getAtributo("pais"));
         jTextFieldPeso.setText(Double.toString(umBoxeador.getInformacoesPessoais().getPeso()));
         jTextFieldRg.setText(umBoxeador.getInformacoesPessoais().getRg());
-        jTextFieldTotalDerrotas.setText(Integer.toString(umBoxeador.getTotalDerrotas()));
-        jTextFieldTotalDesistencias.setText(Integer.toString(umBoxeador.getTotalDesistencias()));
-        jTextFieldTotalEmpates.setText(Integer.toString(umBoxeador.getTotalEmpates()));
-        jTextFieldTotalLutas.setText(Integer.toString(umBoxeador.getTotalLutas()));
-        jTextFieldTotalNocaute.setText(Integer.toString(umBoxeador.getTotalVitoriasNocaute()));
-        jTextFieldTotalVitorias.setText(Integer.toString(umBoxeador.getTotalVitorias()));
+        jTextFieldTotalDerrotas.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalDerrotas()));
+        jTextFieldTotalDesistencias.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalDesistencias()));
+        jTextFieldTotalEmpates.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalEmpates()));
+        jTextFieldTotalLutas.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalLutas()));
+        jTextFieldTotalNocaute.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalVitoriasNocaute()));
+        jTextFieldTotalVitorias.setText(Integer.toString(umBoxeador.getEstatisticaBoxeador().getTotalVitorias()));
 
         telefonesListModel.clear();
         telefones = umBoxeador.getContato().getTelefones();
@@ -330,12 +330,12 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         umBoxeador.getInformacoesPessoais().setCpf(jTextFieldCpf.getText());
         umBoxeador.getInformacoesPessoais().setRg(jTextFieldRg.getText());
         umBoxeador.setEnvergadura(Double.parseDouble(jTextFieldEnvergadura.getText()));
-        umBoxeador.setTotalDerrotas(Integer.parseInt(jTextFieldTotalDerrotas.getText()));
-        umBoxeador.setTotalDesistencias(Integer.parseInt(jTextFieldTotalDesistencias.getText()));
-        umBoxeador.setTotalEmpates(Integer.parseInt(jTextFieldTotalEmpates.getText()));
-        umBoxeador.setTotalLutas(Integer.parseInt(jTextFieldTotalLutas.getText()));
-        umBoxeador.setTotalVitoriasNocaute(Integer.parseInt(jTextFieldTotalNocaute.getText()));
-        umBoxeador.setTotalVitorias(Integer.parseInt(jTextFieldTotalVitorias.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalDerrotas(Integer.parseInt(jTextFieldTotalDerrotas.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalDesistencias(Integer.parseInt(jTextFieldTotalDesistencias.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalEmpates(Integer.parseInt(jTextFieldTotalEmpates.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalLutas(Integer.parseInt(jTextFieldTotalLutas.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalVitoriasNocaute(Integer.parseInt(jTextFieldTotalNocaute.getText()));
+        umBoxeador.getEstatisticaBoxeador().setTotalVitorias(Integer.parseInt(jTextFieldTotalVitorias.getText()));
 
         switch (jComboBoxSexo.getSelectedIndex()) {
             case Boxeador.SEXO_MASCULINO_INDICE:

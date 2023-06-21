@@ -21,15 +21,12 @@ public class Boxeador extends Atleta {
     private char estilo; // O=Ortodoxo(destro) S=Southpaw(canhoto)
     private ArrayList<Premiacao> premiacoes;
     private Double envergadura; // Em cm
-    private int totalLutas;
-    private int totalVitorias;
-    private int totalVitoriasNocaute;
-    private int totalEmpates;
-    private int totalDerrotas;
-    private int totalDesistencias;
-
+    private EstatisticaBoxeador estatisticas;
+    
+    
     public Boxeador(String nome) {
         super(nome);
+        estatisticas = new EstatisticaBoxeador();
     }
 
     public char getCategoria() {
@@ -39,31 +36,7 @@ public class Boxeador extends Atleta {
     public void setCategoria(char categoria) {
         this.categoria = categoria;
     }
-
-    public int getTotalDerrotas() {
-        return totalDerrotas;
-    }
-
-    public void setTotalDerrotas(int derrotas) {
-        this.totalDerrotas = derrotas;
-    }
-
-    public int getTotalDesistencias() {
-        return totalDesistencias;
-    }
-
-    public void setTotalDesistencias(int desistencias) {
-        this.totalDesistencias = desistencias;
-    }
-
-    public int getTotalEmpates() {
-        return totalEmpates;
-    }
-
-    public void setTotalEmpates(int empates) {
-        this.totalEmpates = empates;
-    }
-
+    
     public Double getEnvergadura() {
         return envergadura;
     }
@@ -80,13 +53,7 @@ public class Boxeador extends Atleta {
         this.estilo = estilo;
     }
 
-    public int getTotalLutas() {
-        return totalLutas;
-    }
-
-    public void setTotalLutas(int numLutas) {
-        this.totalLutas = numLutas;
-    }
+    
 
     public ArrayList<Premiacao> getPremiacoes() {
         return premiacoes;
@@ -95,7 +62,28 @@ public class Boxeador extends Atleta {
     public void setPremiacoes(ArrayList<Premiacao> premiacoes) {
         this.premiacoes = premiacoes;
     }
+    
+    public EstatisticaBoxeador getEstatisticaBoxeador(){
+        return estatisticas;
+    }
+    
+public class EstatisticaBoxeador{
+    
+    private int totalLutas;
+    private int totalVitorias;
+    private int totalVitoriasNocaute;
+    private int totalEmpates;
+    private int totalDerrotas;
+    private int totalDesistencias;
+    
+    public int getTotalLutas() {
+        return totalLutas;
+    }
 
+    public void setTotalLutas(int numLutas) {
+        this.totalLutas = numLutas;
+    }
+    
     public int getTotalVitorias() {
         return totalVitorias;
     }
@@ -103,7 +91,7 @@ public class Boxeador extends Atleta {
     public void setTotalVitorias(int vitorias) {
         this.totalVitorias = vitorias;
     }
-
+    
     public int getTotalVitoriasNocaute() {
         return totalVitoriasNocaute;
     }
@@ -111,6 +99,31 @@ public class Boxeador extends Atleta {
     public void setTotalVitoriasNocaute(int vitoriasNocaute) {
         this.totalVitoriasNocaute = vitoriasNocaute;
     }
+    
+    public int getTotalEmpates() {
+        return totalEmpates;
+    }
+
+    public void setTotalEmpates(int empates) {
+        this.totalEmpates = empates;
+    }
+    public int getTotalDerrotas() {
+        return totalDerrotas;
+    }
+
+    public void setTotalDerrotas(int derrotas) {
+        this.totalDerrotas = derrotas;
+    }
+    
+    public int getTotalDesistencias() {
+        return totalDesistencias;
+    }
+
+    public void setTotalDesistencias(int desistencias) {
+        this.totalDesistencias = desistencias;
+    }
+    
+}
 
     public String obterCategoriaPesoNome() {
         return obterCategoriaPesoNome(this.getCategoria(), this.getInformacoesPessoais().getPeso());
