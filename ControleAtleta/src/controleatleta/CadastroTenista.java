@@ -215,26 +215,26 @@ public class CadastroTenista extends javax.swing.JDialog {
         }
         
 
-        umTenista.setPosicaoRankMundial(Integer.parseInt(jTextFieldPosRankMundial.getText()));
-        umTenista.setFortunaAcumuladaJogos(Double.parseDouble(jTextFieldFortunaJogos.getText()));
-        umTenista.setFortunaAcumuladaPropagandas(Double.parseDouble(jTextFieldFortunaPropagandas.getText()));
-        umTenista.setPatrocinadores(patrocinadores);
-        umTenista.setNomeQuantidadeTitulosGanhos(nomeQuantidadeTitulosGanhos);
-        umTenista.setVitoriasPorAno(vitoriasAno);
-        umTenista.setDerrotasPorAno(derrotasAno);
+        umTenista.getEstatisticas().setPosicaoRankMundial(Integer.parseInt(jTextFieldPosRankMundial.getText()));
+        umTenista.getCarreira().setFortunaAcumuladaJogos(Double.parseDouble(jTextFieldFortunaJogos.getText()));
+        umTenista.getCarreira().setFortunaAcumuladaPropagandas(Double.parseDouble(jTextFieldFortunaPropagandas.getText()));
+        umTenista.getCarreira().setPatrocinadores(patrocinadores);
+        umTenista.getCarreira().setNomeQuantidadeTitulosGanhos(nomeQuantidadeTitulosGanhos);
+        umTenista.getEstatisticas().setVitoriasPorAno(vitoriasAno);
+        umTenista.getEstatisticas().setDerrotasPorAno(derrotasAno);
         
         switch (jComboBoxTipoQuadra.getSelectedIndex()) {
             case TipoQuadra.HARD_COURT_INDICE:
                 quadra = new TipoQuadra(TipoQuadra.HARD_COURT_VALOR);
-                umTenista.setQuadraPreferida(quadra);
+                umTenista.getCarreira().setQuadraPreferida(quadra);
                 break;
             case TipoQuadra.CLAY_INDICE:
                 quadra = new TipoQuadra(TipoQuadra.CLAY_VALOR);
-                umTenista.setQuadraPreferida(quadra);
+                umTenista.getCarreira().setQuadraPreferida(quadra);
                 break;
             case TipoQuadra.GRASS_INDICE:
                 quadra = new TipoQuadra(TipoQuadra.GRASS_VALOR);
-                umTenista.setQuadraPreferida(quadra);
+                umTenista.getCarreira().setQuadraPreferida(quadra);
                 break;
         }
         
