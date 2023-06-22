@@ -154,7 +154,7 @@ public class ValidaDados {
         validarIntervalo(fort, FORTUNA_MINIMA, FORTUNA_MAXIMA, "Fortuna inválida!");
     }
 
-    public class ValidadorNome{
+    public static class ValidadorNome{
         public void validarNome(String nome) throws Exception {
             String validos = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZãõñáéíóú";
 
