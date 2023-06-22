@@ -141,20 +141,68 @@ public class CadastroBoxeador extends javax.swing.JFrame {
     }
 
     private boolean validarCampos() {
+        if (!validarCampoNome()) {
+            return false;
+        }
+        if (!validarCampoDataNascimento()) {
+            return false;
+        }
+        if (!validarCampoAltura()) {
+            return false;
+        }
+        if (!validarCampoPeso()) {
+            return false;
+        }
+        if (!validarCampoNumero()) {
+            return false;
+        }
+        if (!validarCampoEnvergadura()) {
+            return false;
+        }
+        if (!validarCampoTotalDerrotas()) {
+            return false;
+        }
+        if (!validarCampoTotalDesistencias()) {
+            return false;
+        }
+        if (!validarCampoTotalEmpates()) {
+            return false;
+        }
+        if (!validarCampoTotalLutas()) {
+            return false;
+        }
+        if (!validarCampoTotalNocaute()) {
+            return false;
+        }
+        if (!validarCampoTotalVitorias()) {
+            return false;
+        }
+        return true;
+    }
+    
+    private boolean validarCampoNome() {
         if (jTextFieldNome.getText().trim().length() == 0) {
-            this.exibirInformacao("O valor do campo 'Nome' não foi informado.");
+            exibirInformacao("O valor do campo 'Nome' não foi informado.");
             jTextFieldNome.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoDataNascimento() {
         if (jTextFieldDataNascimento.getText().length() != 0) {
             try {
                 dateFormat.parse(jTextFieldDataNascimento.getText());
             } catch (ParseException ex) {
-                this.exibirInformacao("O valor do campo 'Data de Nascimento' é inválido.");
+                exibirInformacao("O valor do campo 'Data de Nascimento' é inválido.");
                 jTextFieldDataNascimento.requestFocus();
                 return false;
             }
         }
+        return true;
+    }
+    
+    private boolean validarCampoAltura(){
         try {
             Double.parseDouble(jTextFieldAltura.getText());
         } catch (Exception ex) {
@@ -162,6 +210,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldAltura.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoPeso(){
         try {
             Double.parseDouble(jTextFieldPeso.getText());
         } catch (Exception ex) {
@@ -169,6 +221,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldPeso.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoNumero(){
         if (!jTextFieldNumero.getText().equals("")) {
             try {
                 Integer.parseInt(jTextFieldNumero.getText());
@@ -178,6 +234,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
                 return false;
             }
         }
+        return true;
+    }
+    
+    private boolean validarCampoEnvergadura(){
         try {
             Double.parseDouble(jTextFieldEnvergadura.getText());
         } catch (Exception ex) {
@@ -185,6 +245,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldEnvergadura.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalDerrotas(){
         try {
             Integer.parseInt(jTextFieldTotalDerrotas.getText());
         } catch (Exception ex) {
@@ -192,6 +256,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldTotalDerrotas.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalDesistencias(){
         try {
             Integer.parseInt(jTextFieldTotalDesistencias.getText());
         } catch (Exception ex) {
@@ -199,6 +267,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldTotalDesistencias.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalEmpates(){
         try {
             Integer.parseInt(jTextFieldTotalEmpates.getText());
         } catch (Exception ex) {
@@ -206,6 +278,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldTotalEmpates.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalLutas(){
         try {
             Integer.parseInt(jTextFieldTotalLutas.getText());
         } catch (Exception ex) {
@@ -213,6 +289,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldTotalLutas.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalNocaute(){
         try {
             Integer.parseInt(jTextFieldTotalNocaute.getText());
         } catch (Exception ex) {
@@ -220,6 +300,10 @@ public class CadastroBoxeador extends javax.swing.JFrame {
             jTextFieldTotalNocaute.requestFocus();
             return false;
         }
+        return true;
+    }
+    
+    private boolean validarCampoTotalVitorias(){
         try {
             Integer.parseInt(jTextFieldTotalVitorias.getText());
         } catch (Exception ex) {
@@ -229,7 +313,7 @@ public class CadastroBoxeador extends javax.swing.JFrame {
         }
         return true;
     }
-
+    
     private void habilitarDesabilitarCampos() {
         boolean registroSelecionado = (umBoxeador != null);
         jTextFieldAltura.setEnabled(modoAlteracao);
