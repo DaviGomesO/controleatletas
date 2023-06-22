@@ -1,6 +1,7 @@
 package controleatleta;
 
 import ValidaDados.ValidaDados;
+import ValidaDados.ValidaDados.ValidadorNome;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 
@@ -103,13 +104,13 @@ public class CadastroTitulosGanhos extends javax.swing.JDialog {
 
     private void jButtonSalvarTitulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarTitulosActionPerformed
         
-        ValidaDados dados = null;
+        ValidaDados.ValidadorNome dados = new ValidadorNome();
         String nome;
         int quantidade;
         
         try {
             
-            ValidaDados.validarNome(jTextFieldNomeTitulo.getText());
+            dados.validarNome(jTextFieldNomeTitulo.getText());
             ValidaDados.validarQuantidade(jTextFieldQuantidadeTitulo.getText());       
             
         } catch (Exception ex) {

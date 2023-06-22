@@ -1,6 +1,7 @@
 package controleatleta;
 
 import ValidaDados.ValidaDados;
+import ValidaDados.ValidaDados.ValidadorNome;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -88,10 +89,11 @@ public class CadastroPatrocinadores extends javax.swing.JDialog {
 
     private void jButtonAdicionarPatrocinadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPatrocinadorActionPerformed
     
-        ValidaDados dados = null;
+        ValidaDados.ValidadorNome validador;
+        validador = new ValidadorNome();
         
         try{
-            ValidaDados.validarNome(jTextFieldNomePatrocinador.getText());
+            validador.validarNome(jTextFieldNomePatrocinador.getText());
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage(), "ERRO!", JOptionPane.INFORMATION_MESSAGE);
         }
