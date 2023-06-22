@@ -17,34 +17,6 @@ public class Boxeador extends Atleta {
     public static final char ESTILO_ORTODOXO_VALOR = 'O';
     public static final char ESTILO_SOUTHPAW_VALOR = 'S';
     
-    private static final int LIMITE_PESO_AMADOR = 48;
-    private static final int LIMITE_PESO_MOSCA = 51;
-    private static final int LIMITE_PESO_GALO = 54;
-    private static final int LIMITE_PESO_PENA = 57;
-    private static final int LIMITE_PESO_LEVE = 60;
-    private static final int LIMITE_PESO_MM_LIGEIRO = 64;
-    private static final int LIMITE_PESO_MEIO_MEDIO = 69;
-    private static final int LIMITE_PESO_MEDIO = 75;
-    private static final int LIMITE_PESO_MEIO_PESADO = 81;
-    private static final int LIMITE_PESO_PESADO = 91;
-
-    private static final double LIMITE_PESO_PROFISSIONAL_PALHA = 47.627;
-    private static final double LIMITE_PESO_PROFISSIONAL_MOSCA_LIGEIRO = 48.988;
-    private static final double LIMITE_PESO_PROFISSIONAL_MOSCA = 50.802;
-    private static final double LIMITE_PESO_PROFISSIONAL_SUPER_MOSCA = 52.163;
-    private static final double LIMITE_PESO_PROFISSIONAL_GALO = 53.524;
-    private static final double LIMITE_PESO_PROFISSIONAL_SUPER_GALO = 55.338;
-    private static final double LIMITE_PESO_PROFISSIONAL_PENA = 57.153;
-    private static final double LIMITE_PESO_PROFISSIONAL_SUPER_PENA = 58.967;
-    private static final double LIMITE_PESO_PROFISSIONAL_LEVE = 61.235;
-    private static final double LIMITE_PESO_PROFISSIONAL_MM_LIGEIRO = 63.503;
-    private static final double LIMITE_PESO_PROFISSIONAL_MM_MEDIO = 66.678;
-    private static final double LIMITE_PESO_PROFISSIONAL_M_LIGEIRO = 69.853;
-    private static final double LIMITE_PESO_PROFISSIONAL_MEDIO = 72.575;
-    private static final double LIMITE_PESO_PROFISSIONAL_SUPER_MEDIO = 76.364;
-    private static final double LIMITE_PESO_PROFISSIONAL_MEIO_PESADO = 79.379;
-    private static final double LIMITE_PESO_PROFISSIONAL_CRUZADOR = 90.719;
-
     private char categoria; // A=Amador P=Profissional
     private char estilo; // O=Ortodoxo(destro) S=Southpaw(canhoto)
     private ArrayList<Premiacao> premiacoes;
@@ -168,25 +140,25 @@ public class EstatisticaBoxeador{
     }
 
     private static String obterCategoriaPesoNomeAmador(double peso) {
-        if (peso <= LIMITE_PESO_AMADOR) {
+        if (peso <= 48) {
             return "Mosca Ligeiro";
-        } else if (peso <= LIMITE_PESO_MOSCA) {
+        } else if (peso <= 51) {
             return "Mosca";
-        } else if (peso <= LIMITE_PESO_GALO) {
+        } else if (peso <= 54) {
             return "Galo";
-        } else if (peso <= LIMITE_PESO_PENA) {
+        } else if (peso <= 57) {
             return "Pena";
-        } else if (peso <= LIMITE_PESO_LEVE) {
+        } else if (peso <= 57) {
             return "Leve";
-        } else if (peso <= LIMITE_PESO_MM_LIGEIRO) {
+        } else if (peso <= 64) {
             return "M. M. Ligeiro";
-        } else if (peso <= LIMITE_PESO_MEIO_MEDIO) {
+        } else if (peso <= 69) {
             return "Meio Médio";
-        } else if (peso <= LIMITE_PESO_MEDIO) {
+        } else if (peso <= 75) {
             return "Médio";
-        } else if (peso <= LIMITE_PESO_MEIO_PESADO) {
+        } else if (peso <= 81) {
             return "Meio Pesado";
-        } else if (peso <= LIMITE_PESO_PESADO) {
+        } else if (peso <= 91) {
             return "Pesado";
         } else {
             return "Super Pesado";
@@ -194,37 +166,37 @@ public class EstatisticaBoxeador{
     }
 
     private static String obterCategoriaPesoNomeProfissional(double peso) {
-        if (peso <= LIMITE_PESO_PROFISSIONAL_PALHA) {
+        if (peso <= 47.627) {
             return "Palha";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MOSCA_LIGEIRO) {
+        } else if (peso <= 48.988) {
             return "Mosca Ligeiro";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MOSCA) {
+        } else if (peso <= 50.802) {
             return "Mosca";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_SUPER_MOSCA) {
+        } else if (peso <= 52.163) {
             return "Super Mosca";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_GALO) {
+        } else if (peso <= 53.524) {
             return "Galo";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_SUPER_GALO) {
+        } else if (peso <= 55.338) {
             return "Super Galo";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_PENA) {
+        } else if (peso <= 57.153) {
             return "Pena";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_SUPER_PENA) {
+        } else if (peso <= 58.967) {
             return "Super Pena";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_LEVE) {
+        } else if (peso <= 61.235) {
             return "Leve";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MM_LIGEIRO) {
+        } else if (peso <= 63.503) {
             return "M. M. Ligeiro";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MM_MEDIO) {
+        } else if (peso <= 66.678) {
             return "M. Médio";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_M_LIGEIRO) {
+        } else if (peso <= 69.853) {
             return "M. Ligeiro";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MEDIO) {
+        } else if (peso <= 72.575) {
             return "Médio";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_SUPER_MEDIO) {
+        } else if (peso <= 76.364) {
             return "Super Médio";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_MEIO_PESADO) {
+        } else if (peso <= 79.379) {
             return "Meio Pesado";
-        } else if (peso <= LIMITE_PESO_PROFISSIONAL_CRUZADOR) {
+        } else if (peso <= 90.719) {
             return "Cruzador";
         } else {
             return "Pesado";
