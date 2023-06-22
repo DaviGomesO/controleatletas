@@ -2,6 +2,9 @@ package controleatleta;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 
 public class Atleta {
     private Contato contato;
@@ -140,6 +143,20 @@ public class Atleta {
 
         public void setSexo(char sexo) {
             this.sexo = sexo;
-        }        
+        }   
+        
+        public int getIdade() {
+            LocalDate dataAtual = LocalDate.now();
+            LocalDate dataNasc = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Period periodo = Period.between(dataNasc, dataAtual);
+            return periodo.getYears();
+        }
+
+        public boolean isMaiorIdade() {
+            LocalDate dataAtual = LocalDate.now();
+            LocalDate dataNasc = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Period periodo = Period.between(dataNasc, dataAtual);
+            return periodo.getYears() >= 18;
+        }
     }
 }

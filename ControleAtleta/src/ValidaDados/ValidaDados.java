@@ -1,8 +1,5 @@
 package ValidaDados;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class ValidaDados {
     
     private static final float PESO_MINIMO = 2.5f;
