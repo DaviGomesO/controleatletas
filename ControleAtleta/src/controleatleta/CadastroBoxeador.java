@@ -388,18 +388,34 @@ public class CadastroBoxeador extends javax.swing.JFrame {
     }
 
     private void atualizarCategoriaPeso() {
-        char categoria;
+        char categoria = obterCategoriaSelecionada();
+
+        if (categoria == '\u0000') {
+            return;
+        }
+
+        double peso = obterPesoInformado();
+
+        jTextFieldCategoriaPeso.setText(Boxeador.obterCategoriaPesoNome(categoria, peso));
+    }
+
+    private char obterCategoriaSelecionada() {
         switch (jComboBoxCategoria.getSelectedIndex()) {
             case Boxeador.CATEGORIA_AMADOR_INDICE:
-                categoria = Boxeador.CATEGORIA_AMADOR_VALOR;
-                break;
+                return Boxeador.CATEGORIA_AMADOR_VALOR;
             case Boxeador.CATEGORIA_PROFISSIONAL_INDICE:
-                categoria = Boxeador.CATEGORIA_PROFISSIONAL_VALOR;
-                break;
+                return Boxeador.CATEGORIA_PROFISSIONAL_VALOR;
             default:
-                return;
+                return '\u0000'; // Retorna caractere nulo se a categoria não estiver selecionada
         }
-        jTextFieldCategoriaPeso.setText(Boxeador.obterCategoriaPesoNome(categoria, Double.parseDouble(jTextFieldPeso.getText())));
+    }
+
+    private double obterPesoInformado() {
+        try {
+            return Double.parseDouble(jTextFieldPeso.getText());
+        } catch (NumberFormatException e) {
+            return 0.0; // Retorna 0.0 caso ocorra um erro de formato no peso
+        }
     }
 
     @SuppressWarnings("unchecked")
