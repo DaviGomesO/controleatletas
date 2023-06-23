@@ -104,6 +104,16 @@ public class EstatisticaBoxeador{
     private int totalDerrotas;
     private int totalDesistencias;
     
+     public EstatisticaBoxeador() {
+        // Inicializa as estatísticas com valores padrão
+        this.totalLutas = 0;
+        this.totalVitorias = 0;
+        this.totalVitoriasNocaute = 0;
+        this.totalEmpates = 0;
+        this.totalDerrotas = 0;
+        this.totalDesistencias = 0;
+    }
+    
     public int getTotalLutas() {
         return totalLutas;
     }
@@ -150,8 +160,33 @@ public class EstatisticaBoxeador{
     public void setTotalDesistencias(int desistencias) {
         this.totalDesistencias = desistencias;
     }
-    
+    public void adicionarVitoria() {
+        totalLutas++;
+        totalVitorias++;
+    }
+
+    public void adicionarVitoriaNocaute() {
+        totalLutas++;
+        totalVitorias++;
+        totalVitoriasNocaute++;
+    }
+    public void adicionarEmpate() {
+        totalLutas++;
+        totalEmpates++;
+    }
+
+    public void adicionarDerrota() {
+        totalLutas++;
+        totalDerrotas++;
+    }
+    public void adicionarDesistencia() {
+        totalLutas++;
+        totalDesistencias++;
+    }
 }
+    
+    
+
 
     public String obterCategoriaPesoNome() {
         return obterCategoriaPesoNome(this.getCategoria(), this.getInformacoesPessoais().getPeso());
