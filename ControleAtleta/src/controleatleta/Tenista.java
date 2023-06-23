@@ -129,8 +129,23 @@ public class Tenista extends Atleta{
 
         public void setNomeQuantidadeTitulosGanhos(HashMap<String, Integer> nomeQuantidadeTitulosGanhos) {
             this.nomeQuantidadeTitulosGanhos = nomeQuantidadeTitulosGanhos;
-        }     
-    
+        } 
+        
+        public void adicionarPatrocinador(Patrocinador patrocinador) {
+            patrocinadores.add(patrocinador);
+        }
+
+        public void removerPatrocinador(Patrocinador patrocinador) {
+            patrocinadores.remove(patrocinador);
+        }
+        
+        public void adicionarTituloGanho(String nome, int quantidade) {
+            nomeQuantidadeTitulosGanhos.put(nome, quantidade);
+        }
+
+        public void removerTituloGanho(String nome) {
+            nomeQuantidadeTitulosGanhos.remove(nome);
+        }
      }    
         
 }
