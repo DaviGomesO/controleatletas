@@ -54,8 +54,31 @@ public class Tenista extends Atleta{
         public void setDerrotasPorAno(HashMap<Integer, Integer> derrotasPorAno) {
             this.derrotasPorAno = derrotasPorAno;
         }
+        
+        public int getTotalVitorias() {
+            // Calcula e retorna o total de vitórias do tenista
+            int total = 0;
+            for (int vitorias : vitoriasPorAno.values()) {
+                total += vitorias;
+            }
+            return total;
+        }
+            public int getTotalDerrotas() {
+            // Calcula e retorna o total de derrotas do tenista
+            int total = 0;
+            for (int derrotas : derrotasPorAno.values()) {
+                total += derrotas;
+            }
+            return total;
+        }
+            public double getTaxaVitorias() {
+            // Calcula e retorna a taxa de vitórias do tenista
+            int totalVitorias = getTotalVitorias();
+            int totalPartidas = getTotalVitorias() + getTotalDerrotas();
+            return totalPartidas > 0 ? (double) totalVitorias / totalPartidas : 0.0;
+        }
     }
-
+    
     public class CarreiraTenista {
         private double fortunaAcumuladaJogos;
         private double fortunaAcumuladaPropagandas;
