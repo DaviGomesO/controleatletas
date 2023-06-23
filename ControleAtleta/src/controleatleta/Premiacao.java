@@ -2,8 +2,8 @@ package controleatleta;
 
 public class Premiacao {
 
-    private String titulo;
-    private int ano;
+    private final String titulo;
+    private final int ano;
 
     public Premiacao(String titulo, int ano) {
         this.titulo = titulo;
@@ -13,21 +13,13 @@ public class Premiacao {
     public String getTitulo() {
         return titulo;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
+    
     public int getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-    
     @Override
     public String toString() {
-        return this.ano + " - " + this.titulo;
+        return ano + " - " + titulo;
     }
 }

@@ -184,10 +184,7 @@ public class EstatisticaBoxeador{
         totalDesistencias++;
     }
 }
-    
-    
-
-
+   
     public String obterCategoriaPesoNome() {
         return obterCategoriaPesoNome(this.getCategoria(), this.getInformacoesPessoais().getPeso());
     }
