@@ -9,6 +9,8 @@ import java.time.ZoneId;
 public class Atleta {
     private Contato contato;
     private InformacoesPessoais informacoesPessoais;
+    
+    public static final int IDADE_MINIMA = 18;
 
     
     public Atleta(String nome) {
@@ -153,10 +155,11 @@ public class Atleta {
         }
 
         public boolean isMaiorIdade() {
-            LocalDate dataAtual = LocalDate.now();
-            LocalDate dataNasc = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            Period periodo = Period.between(dataNasc, dataAtual);
-            return periodo.getYears() >= 18;
+             LocalDate dataAtual = LocalDate.now();
+             LocalDate dataNasc = dataNascimento.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+             Period periodo = Period.between(dataNasc, dataAtual);
+             return periodo.getYears() >= IDADE_MINIMA;
         }
+
     }
 }
